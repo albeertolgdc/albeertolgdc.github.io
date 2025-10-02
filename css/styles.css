@@ -10830,3 +10830,7 @@ textarea.form-control-lg {
   background-position: center;
   background-size: cover;
 }
+body {
+  background-color: #212529 !important;
+  color: #f8f9fa;
+}
