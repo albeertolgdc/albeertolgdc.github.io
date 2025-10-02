@@ -10834,3 +10834,6 @@ body {
   background-color: #212529 !important;
   color: #f8f9fa;
 }
+.bg-dark {
+  background-color: #0a0a0a !important;
+}
