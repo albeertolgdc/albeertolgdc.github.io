@@ -29,7 +29,7 @@
                 overflow-x: hidden;
             }
 
-            h1, h2, h3 {
+            h1, h2, h3, h4, h5 {
                 font-family: 'Syne', sans-serif;
                 font-weight: 700;
             }
@@ -62,7 +62,7 @@
                 line-height: 0.9;
             }
 
-            /* --- PROYECTOS --- */
+            /* --- PROYECTOS (GAME DEV) --- */
             .project-card {
                 background: rgba(255, 255, 255, 0.02);
                 border: 1px solid rgba(255, 255, 255, 0.05);
@@ -86,7 +86,7 @@
                 color: #888;
             }
 
-            /* --- GALERÍA MASONRY --- */
+            /* --- GALERÍA MASONRY & HOVER REVEAL (ACTUALIZADO) --- */
             .gallery-grid {
                 column-count: 3;
                 column-gap: 1.5rem;
@@ -95,23 +95,60 @@
             @media (max-width: 576px) { .gallery-grid { column-count: 1; } }
 
             .gallery-item {
-                cursor: pointer; /* Mano al pasar ratón */
+                cursor: pointer;
                 break-inside: avoid;
                 margin-bottom: 1.5rem;
-                position: relative;
+                position: relative; /* NECESARIO para que el texto se posicione dentro */
                 border-radius: 8px;
                 overflow: hidden;
-                transition: transform 0.3s ease;
+                background: #000; /* Fondo negro por si la imagen tarda en cargar */
             }
+            
+            /* Imagen base */
             .gallery-item img {
                 width: 100%;
                 height: auto;
                 display: block;
-                filter: grayscale(80%);
-                transition: filter 0.3s ease;
+                transition: transform 0.5s ease, filter 0.3s ease;
             }
-            .gallery-item:hover { transform: scale(1.02); z-index: 2; }
-            .gallery-item:hover img { filter: grayscale(0%); }
+
+            /* TEXTO OCULTO (OVERLAY) - NUEVO CÓDIGO */
+            .gallery-overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 30px 20px 20px 20px; /* Padding extra arriba para el degradado */
+                background: linear-gradient(to top, rgba(0,0,0,0.95), transparent); /* Degradado negro elegante */
+                color: white;
+                opacity: 0; /* Invisible por defecto */
+                transform: translateY(20px); /* Ligeramente desplazado hacia abajo */
+                transition: all 0.3s ease;
+                pointer-events: none; /* Permite hacer clic en la imagen a través del texto */
+            }
+
+            .gallery-overlay h5 {
+                font-size: 1.1rem;
+                margin: 0;
+                color: #fff;
+            }
+            .gallery-overlay p {
+                font-size: 0.85rem;
+                color: #ccc;
+                margin: 0;
+            }
+
+            /* INTERACCIÓN (HOVER) */
+            .gallery-item:hover .gallery-overlay {
+                opacity: 1; /* Aparece */
+                transform: translateY(0); /* Sube a su sitio */
+            }
+
+            .gallery-item:hover img {
+                transform: scale(1.05); /* Zoom sutil */
+                filter: brightness(0.7); /* Oscurece la foto para leer el texto mejor */
+            }
+
 
             /* --- LIGHTBOX (PANTALLA COMPLETA) --- */
             .lightbox-overlay {
@@ -121,7 +158,7 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: rgba(0, 0, 0, 0.9);
+                background-color: rgba(0, 0, 0, 0.95);
                 backdrop-filter: blur(8px);
                 z-index: 9999;
                 justify-content: center;
@@ -136,8 +173,8 @@
             .lightbox-overlay img {
                 max-width: 90%;
                 max-height: 90vh;
-                box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
-                border: 1px solid rgba(255, 255, 255, 0.2);
+                box-shadow: 0 0 30px rgba(0,0,0,0.5);
+                border: 1px solid rgba(255, 255, 255, 0.1);
                 border-radius: 4px;
                 transform: scale(0.9);
                 transition: transform 0.3s ease;
@@ -236,24 +273,55 @@
                 <h2 class="display-5 mb-5 text-center">Concept & Illustration</h2>
                 
                 <div class="gallery-grid">
+                    
                     <div class="gallery-item">
-                        <img src="assets/2D/Bonnie/conejito.jpg" alt="Art 1">
+                        <img src="assets/2D/Bonnie/conejito.jpg" alt="Bonnie Art">
+                        <div class="gallery-overlay">
+                            <h5>Bonnie</h5>
+                            <p>Digital Illustration</p>
+                        </div>
                     </div>
+
                     <div class="gallery-item">
-                        <img src="assets/2D/Catpuccino/GabrielGDD.png" alt="Art 2">
+                        <img src="assets/2D/Catpuccino/GabrielGDD.png" alt="Gabriel Design">
+                        <div class="gallery-overlay">
+                            <h5>Gabriel Design</h5>
+                            <p>Character Sheet & Expressions</p>
+                        </div>
                     </div>
+
                     <div class="gallery-item">
-                        <img src="https://source.unsplash.com/random/600x600/?texture" alt="Art 3">
+                        <img src="https://source.unsplash.com/random/600x600/?texture" alt="Texture">
+                        <div class="gallery-overlay">
+                            <h5>Texture Study</h5>
+                            <p>Material Creation</p>
+                        </div>
                     </div>
+
                     <div class="gallery-item">
-                        <img src="https://source.unsplash.com/random/600x900/?scifi" alt="Art 4">
+                        <img src="https://source.unsplash.com/random/600x900/?scifi" alt="SciFi">
+                        <div class="gallery-overlay">
+                            <h5>Sci-Fi Environment</h5>
+                            <p>Concept Art</p>
+                        </div>
                     </div>
+
                     <div class="gallery-item">
-                        <img src="https://source.unsplash.com/random/600x700/?neon" alt="Art 5">
+                        <img src="https://source.unsplash.com/random/600x700/?neon" alt="Neon">
+                        <div class="gallery-overlay">
+                            <h5>Cyberpunk Mood</h5>
+                            <p>Lighting Study</p>
+                        </div>
                     </div>
+
                      <div class="gallery-item">
-                        <img src="https://source.unsplash.com/random/600x600/?dark" alt="Art 6">
+                        <img src="https://source.unsplash.com/random/600x600/?dark" alt="Dark Art">
+                        <div class="gallery-overlay">
+                            <h5>Dark Fantasy</h5>
+                            <p>Sketching</p>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -287,7 +355,7 @@
                                 <br><br>
                                 <strong class="text-white">Mi Impacto:</strong>
                                 <ul class="small text-secondary ps-3">
-                                    <li>Diseño integral de <strong>+20 pantallas de interfaz</strong> (Menús, HUD, Gacha, Inventario).</li>
+                                    <li>Diseño integral de <strong>+20 pantallas de interfaz</strong> (Menús, HUD, Gacha).</li>
                                     <li>Creación de identidad visual "Pastel/Cartoon" y assets.</li>
                                     <li>Diseño de Personaje: "Gabriel" (Concepto y Expresiones).</li>
                                     <li>UX: Adaptación de mecánicas complejas a interfaces de un solo clic.</li>
@@ -310,6 +378,7 @@
                             </div>
                         </div>
                     </div> 
+                    
                     <div class="col-md-6">
                         <div class="project-card h-100 d-flex flex-column justify-content-center align-items-center text-center p-5" style="border: 1px dashed #333;">
                             <i class="bi bi-cone-striped display-4 text-secondary mb-3"></i>
@@ -361,21 +430,24 @@
             const lightboxImg = document.getElementById('lightbox-img');
             const galleryImages = document.querySelectorAll('.gallery-item img');
             
-            if (lightbox && lightboxImg) { // Verificación de seguridad
+            if (lightbox && lightboxImg) { 
                 galleryImages.forEach(img => {
                     img.addEventListener('click', (e) => {
                         e.stopPropagation();
                         lightboxImg.src = img.src; 
                         lightbox.classList.add('active');
+                        // Opcional: Bloquear el scroll de fondo
+                        document.body.style.overflow = 'hidden';
                     });
                 });
             } else {
                 console.error("Error: No se encontró el lightbox en el HTML.");
             }
             
-            // Esta función tiene que ser global para que el HTML la vea
             window.closeLightbox = function() {
                 lightbox.classList.remove('active');
+                // Restaurar scroll
+                document.body.style.overflow = 'auto';
                 setTimeout(() => {
                     lightboxImg.src = "";
                 }, 300);
