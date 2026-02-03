@@ -391,13 +391,54 @@
                     </div> 
                     
                     <div class="col-md-6">
-                        <div class="project-card h-100 d-flex flex-column justify-content-center align-items-center text-center p-5" style="border: 1px dashed #333;">
-                            <i class="bi bi-cone-striped display-4 text-secondary mb-3"></i>
-                            <h4 class="text-secondary">WIP: Próximo Proyecto</h4>
-                            <p class="small text-muted">Trabajando en nuevas interfaces y assets...</p>
+                        <div class="project-card h-100 d-flex flex-column">
+                            <div class="overflow-hidden rounded mb-3" style="border: 1px solid #333;">
+                                <img src="assets/games/mioupet_tech.gif" 
+                                     alt="MiouPet Gameplay Accelerometer" 
+                                     class="img-fluid w-100" 
+                                     style="object-fit: cover; height: 400px;">
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h3 class="h4 mb-0">MiouPet</h3>
+                                    <small class="text-secondary" style="font-size: 0.8rem;">
+                                        by <a href="https://mangostudiourjc.itch.io/mioupet" target="_blank" class="text-white text-decoration-none" style="border-bottom: 1px dotted #888;">Mango Studio</a>
+                                    </small>
+                                </div>
+                                <span class="badge bg-success text-dark">Android App</span>
+                            </div>
+                            
+                            <div class="mb-3 mt-2">
+                                <span class="badge bg-secondary text-white">Gameplay Programmer</span>
+                                <span class="badge bg-danger text-white">Backend Dev</span>
+                            </div>
+                            
+                            <p class="text-secondary small flex-grow-1">
+                                Mascota virtual para Android. Desarrollé el núcleo del minijuego de "Lluvia de Comida" y la conectividad online.
+                                <br><br>
+                                <strong class="text-white">Desafíos de Ingeniería:</strong>
+                                <ul class="small text-secondary ps-3">
+                                    <li><strong>Control por Acelerómetro:</strong> Implementación de físicas y movimiento del personaje basado en la inclinación del dispositivo (Input System).</li>
+                                    <li><strong>Sistema de Ranking:</strong> Gestión de base de datos en tiempo real (Google Firebase) para la tabla de clasificación mundial.</li>
+                                    <li>Lógica de "High Score" persistente en la nube.</li>
+                                </ul>
+                            </p>
+
+                            <div class="mb-4">
+                                <span class="tech-tag">Unity (Accelerometer)</span>
+                                <span class="tech-tag">Firebase API</span>
+                                <span class="tech-tag">C#</span>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <a href="https://mangostudiourjc.itch.io/mioupet" target="_blank" class="btn btn-outline-light">
+                                    <i class="bi bi-phone me-2"></i> Descargar APK
+                                </a>
+                            </div>
                         </div>
                     </div>
-
+                    
                 </div>
             </div>
         </section>
