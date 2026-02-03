@@ -392,11 +392,29 @@
                     
                     <div class="col-md-6">
                         <div class="project-card h-100 d-flex flex-column">
-                            <div class="overflow-hidden rounded mb-3" style="border: 1px solid #333;">
+                            <div class="overflow-hidden rounded mb-3" style="border: 1px solid #333; height: 400px; position: relative;">
+                                
+                                <div style="
+                                    position: absolute;
+                                    top: 0; left: 0; width: 100%; height: 100%;
+                                    background-image: url('assets/MiouPet.gif');
+                                    background-size: cover;
+                                    background-position: center;
+                                    filter: blur(20px) brightness(0.6);
+                                    transform: scale(1.1);
+                                "></div>
+
                                 <img src="assets/MiouPet.gif" 
-                                     alt="MiouPet Gameplay Accelerometer" 
-                                     class="img-fluid w-100" 
-                                     style="object-fit: cover; height: 400px;">
+                                     alt="MiouPet Gameplay" 
+                                     class="img-fluid" 
+                                     style="
+                                        position: relative;
+                                        width: 100%; 
+                                        height: 100%; 
+                                        object-fit: contain;
+                                        z-index: 10;
+                                        drop-shadow: 0 0 20px rgba(0,0,0,0.5);
+                                     ">
                             </div>
 
                             <div class="d-flex justify-content-between align-items-start mb-2">
